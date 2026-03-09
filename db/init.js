@@ -96,6 +96,23 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_leads_stage ON leads(stage);
   CREATE INDEX IF NOT EXISTS idx_leads_email ON leads(email);
   CREATE INDEX IF NOT EXISTS idx_lead_activities_lead ON lead_activities(lead_id);
+
+  CREATE TABLE IF NOT EXISTS tasks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT,
+    status TEXT NOT NULL DEFAULT 'todo',
+    priority TEXT NOT NULL DEFAULT 'medium',
+    category TEXT NOT NULL DEFAULT 'general',
+    assigned_to TEXT,
+    due_date TEXT,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status);
+  CREATE INDEX IF NOT EXISTS idx_tasks_priority ON tasks(priority);
+  CREATE INDEX IF NOT EXISTS idx_tasks_category ON tasks(category);
 `);
 
 // Seed admin user (password: sirak2026 — hashed with simple approach for demo)

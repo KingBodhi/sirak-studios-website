@@ -125,6 +125,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   // Admin layout with sidebar
   const navItems = [
     { href: '/admin', label: 'Dashboard', icon: '◆' },
+    { href: '/admin/tasks', label: 'Tasks', icon: '◫' },
     { href: '/admin/pipeline', label: 'Pipeline', icon: '◎' },
     { href: '/admin/bookings', label: 'Bookings', icon: '◈' },
     { href: '/admin/settings', label: 'Settings', icon: '◇' },
